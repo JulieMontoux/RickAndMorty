@@ -1,22 +1,44 @@
 package fr.epsi.montoux.rickandmorty
 
 import android.os.Bundle
+import android.view.View
+import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import fr.epsi.montoux.rickandmorty.viewmodel.CharactersListViewModel
 
 
 class CharactersListActivity : AppCompatActivity() {
+    private val viewModel: CharactersListViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_characters_list)
 
         val recyclerView: RecyclerView = findViewById(R.id.characters_recycler_view)
+        val errorTextView: TextView = findViewById(R.id.error_text_view)
+
         recyclerView.layoutManager = LinearLayoutManager(this)
-
-        val characters = listOf("Character 1", "Character 2", "Character 3")
-
-        val adapter = CharactersAdapter(characters)
+        val adapter = CharactersAdapter(emptyList())
         recyclerView.adapter = adapter
+
+        viewModel.characters.observe(this, Observer { characters ->
+            if (characters.isNotEmpty()) {
+                recyclerView.visibility = View.VISIBLE
+                errorTextView.visibility = View.GONE
+                adapter.updateCharacters(characters)
+            }
+        })
+
+        viewModel.errorMessage.observe(this, Observer { errorMessage ->
+            if (errorMessage != null) {
+                recyclerView.visibility = View.GONE
+                errorTextView.visibility = View.VISIBLE
+                errorTextView.text = errorMessage
+            }
+        })
     }
 }

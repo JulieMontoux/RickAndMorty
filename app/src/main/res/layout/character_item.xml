@@ -14,5 +14,5 @@
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:textSize="18sp"
-        tools:text="Noms des personnages" />
+        tools:text="Nom des personnages" />
 </androidx.cardview.widget.CardView>
