@@ -1,5 +1,6 @@
 package fr.epsi.montoux.rickandmorty
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -8,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import fr.epsi.montoux.rickandmorty.model.Character
 import fr.epsi.montoux.rickandmorty.viewmodel.CharactersListViewModel
 
 
@@ -40,5 +42,14 @@ class CharactersListActivity : AppCompatActivity() {
                 errorTextView.text = errorMessage
             }
         })
+
+        adapter.setOnItemClickListener(object : CharactersAdapter.OnItemClickListener {
+            override fun onItemClick(character: Character) {
+                val intent = Intent(this@CharactersListActivity, CharacterDetailsActivity::class.java)
+                intent.putExtra("character_name", character.name)
+                startActivity(intent)
+            }
+        })
+
     }
 }

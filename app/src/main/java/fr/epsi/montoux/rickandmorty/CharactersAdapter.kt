@@ -1,5 +1,6 @@
 package fr.epsi.montoux.rickandmorty
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,16 +20,30 @@ class CharactersAdapter(private var characterList: List<Character>) : RecyclerVi
         }
 
         override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
-            holder.characterName.text = characterList[position].name
+            val character = characterList[position]
+            holder.characterName.text = character.name
+            holder.itemView.setOnClickListener {
+                itemClickListener?.onItemClick(character)
+            }
         }
 
         override fun getItemCount() = characterList.size
 
+        @SuppressLint("NotifyDataSetChanged")
         fun updateCharacters(newCharacters: List<Character>) {
             characterList = newCharacters
             notifyDataSetChanged()
         }
 
+    interface OnItemClickListener {
+        fun onItemClick(character: Character)
+    }
+
+    private var itemClickListener: OnItemClickListener? = null
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        this.itemClickListener = listener
+    }
 
 }
 
