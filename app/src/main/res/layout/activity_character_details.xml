@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="4dp"
+    tools:context=".CharacterDetailsActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/character_image_view"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
         android:contentDescription="Character Image"
-        app:srcCompat="@drawable/ic_placeholder" />
+        app:srcCompat="@drawable/ic_placeholder"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:id="@+id/character_name_text_view"
@@ -20,12 +35,12 @@
         android:layout_height="wrap_content"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_below="@id/character_image_view"
-        android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
         android:layout_marginTop="8dp"
-        android:text="Character Name" />
-
+        android:text="Character Name"
+        app:layout_constraintTop_toBottomOf="@id/character_image_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:id="@+id/status_text_view_label"
@@ -33,21 +48,21 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_below="@id/character_name_text_view"
-        android:layout_alignParentStart="true"
         android:layout_marginTop="16dp"
-        android:text="Status:" />
+        android:text="Status:"
+        app:layout_constraintTop_toBottomOf="@id/character_name_text_view"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/status_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:layout_below="@id/character_name_text_view"
-        android:layout_toEndOf="@id/status_text_view_label"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="Alive" />
+        android:text="Alive"
+        app:layout_constraintTop_toBottomOf="@id/character_name_text_view"
+        app:layout_constraintStart_toEndOf="@id/status_text_view_label"/>
 
     <TextView
         android:id="@+id/species_text_view_label"
@@ -55,21 +70,21 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_below="@id/status_text_view"
-        android:layout_alignParentStart="true"
         android:layout_marginTop="8dp"
-        android:text="Species:" />
+        android:text="Species:"
+        app:layout_constraintTop_toBottomOf="@id/status_text_view"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/species_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:layout_below="@id/status_text_view"
-        android:layout_toEndOf="@id/species_text_view_label"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Humanoid" />
+        android:text="Humanoid"
+        app:layout_constraintTop_toBottomOf="@id/status_text_view"
+        app:layout_constraintStart_toEndOf="@id/species_text_view_label"/>
 
     <TextView
         android:id="@+id/gender_text_view_label"
@@ -77,21 +92,21 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_below="@id/species_text_view"
-        android:layout_alignParentStart="true"
         android:layout_marginTop="8dp"
-        android:text="Gender:" />
+        android:text="Gender:"
+        app:layout_constraintTop_toBottomOf="@id/species_text_view"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/gender_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:layout_below="@id/species_text_view"
-        android:layout_toEndOf="@id/gender_text_view_label"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Male" />
+        android:text="Male"
+        app:layout_constraintTop_toBottomOf="@id/species_text_view"
+        app:layout_constraintStart_toEndOf="@id/gender_text_view_label"/>
 
     <TextView
         android:id="@+id/origin_text_view_label"
@@ -99,21 +114,21 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_below="@id/gender_text_view"
-        android:layout_alignParentStart="true"
         android:layout_marginTop="8dp"
-        android:text="Origin:" />
+        android:text="Origin:"
+        app:layout_constraintTop_toBottomOf="@id/gender_text_view"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/origin_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:layout_below="@id/gender_text_view"
-        android:layout_toEndOf="@id/origin_text_view_label"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Earth (C-137)" />
+        android:text="Earth (C-137)"
+        app:layout_constraintTop_toBottomOf="@id/gender_text_view"
+        app:layout_constraintStart_toEndOf="@id/origin_text_view_label"/>
 
     <TextView
         android:id="@+id/location_text_view_label"
@@ -121,20 +136,20 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_below="@id/origin_text_view"
-        android:layout_alignParentStart="true"
         android:layout_marginTop="8dp"
-        android:text="Location:" />
+        android:text="Location:"
+        app:layout_constraintTop_toBottomOf="@id/origin_text_view"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/location_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:layout_below="@id/origin_text_view"
-        android:layout_toEndOf="@id/location_text_view_label"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Earth (Replacement Dimension)" />
+        android:text="Earth (Replacement Dimension)"
+        app:layout_constraintTop_toBottomOf="@id/origin_text_view"
+        app:layout_constraintStart_toEndOf="@id/location_text_view_label"/>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -44,15 +44,15 @@ Remise : Code au format .zip ou lien vers Github (projet public).
 
 ## Partie VI : Affichage des images
 
-- [ ] Récupérez et affichez les images des personnages depuis l’API.
-- [ ] Utilisez ImageView et la librairie Coil : https://coil-kt.github.io/coil/
-- [ ] Ajoutez une ImageView dans `CharacterDetailsActivity` et dans chaque item de la liste.
+- [x] Récupérez et affichez les images des personnages depuis l’API.
+- [x] Utilisez ImageView et la librairie Coil : https://coil-kt.github.io/coil/
+- [x] Ajoutez une ImageView dans `CharacterDetailsActivity` et dans chaque item de la liste.
 
 ## Partie VII : Gestion de la toolbar
 
-- [ ] Ajoutez une toolbar dans l’écran principal avec le nom de l’application.
-- [ ] Ajoutez une toolbar dans `CharacterDetailsActivity` avec le nom du personnage.
-- [ ] Ajoutez un bouton retour à la toolbar.
+- [x] Ajoutez une toolbar dans l’écran principal avec le nom de l’application.
+- [x] Ajoutez une toolbar dans `CharacterDetailsActivity` avec le nom du personnage.
+- [x] Ajoutez un bouton retour à la toolbar.
 
 ## Partie VIII : Style
 

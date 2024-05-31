@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import coil.load
 import fr.epsi.montoux.rickandmorty.model.Character
 
@@ -12,11 +13,17 @@ class CharacterDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_character_details)
 
+        // Configure the toolbar
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         // Récupérer l'objet Character depuis l'intent
         val character = intent.getParcelableExtra<Character>("character")
 
         // Afficher les détails du personnage
         character?.let {
+            supportActionBar?.title = it.name
             displayCharacterDetails(it)
         }
     }
@@ -42,5 +49,10 @@ class CharacterDetailsActivity : AppCompatActivity() {
             placeholder(R.drawable.ic_placeholder)
             error(R.drawable.ic_error)
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 }
