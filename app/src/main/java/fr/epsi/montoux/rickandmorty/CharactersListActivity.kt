@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 import fr.epsi.montoux.rickandmorty.model.Character
 import fr.epsi.montoux.rickandmorty.viewmodel.CharactersListViewModel
 
-
 class CharactersListActivity : AppCompatActivity() {
     private val viewModel: CharactersListViewModel by viewModels()
 
@@ -46,10 +45,9 @@ class CharactersListActivity : AppCompatActivity() {
         adapter.setOnItemClickListener(object : CharactersAdapter.OnItemClickListener {
             override fun onItemClick(character: Character) {
                 val intent = Intent(this@CharactersListActivity, CharacterDetailsActivity::class.java)
-                intent.putExtra("character_name", character.name)
+                intent.putExtra("character", character)
                 startActivity(intent)
             }
         })
-
     }
 }
