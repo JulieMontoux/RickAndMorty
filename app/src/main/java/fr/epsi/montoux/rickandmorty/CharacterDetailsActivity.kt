@@ -13,7 +13,7 @@ class CharacterDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_character_details)
 
-        // Configure the toolbar
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -39,11 +39,11 @@ class CharacterDetailsActivity : AppCompatActivity() {
         val imageView: ImageView = findViewById(R.id.character_image_view)
 
         nameTextView.text = character.name
-        statusTextView.text = "Status: ${character.status}"
-        speciesTextView.text = "Species: ${character.species}"
-        genderTextView.text = "Gender: ${character.gender}"
-        originTextView.text = "Origin: ${character.origin.name}"
-        locationTextView.text = "Location: ${character.location.name}"
+        statusTextView.text = character.status
+        speciesTextView.text = character.species
+        genderTextView.text = character.gender
+        originTextView.text = character.origin.name
+        locationTextView.text = character.location.name
 
         imageView.load(character.image) {
             placeholder(R.drawable.ic_placeholder)

@@ -28,3 +28,4 @@ object RetrofitInstance {
             .create(RickAndMortyApiService::class.java)
     }
 }
+
