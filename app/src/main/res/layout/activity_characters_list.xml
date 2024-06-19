@@ -31,16 +31,17 @@
 
     <TextView
         android:id="@+id/character_name_text_view"
-        android:layout_width="403dp"
-        android:layout_height="58dp"
+        android:layout_width="396dp"
+        android:layout_height="42dp"
         android:text="Rick and Morty characters"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="32sp"
+        android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="14dp" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/characters_recycler_view"
