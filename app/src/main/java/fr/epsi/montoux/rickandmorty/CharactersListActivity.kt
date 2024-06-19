@@ -21,10 +21,6 @@ class CharactersListActivity : AppCompatActivity() {
         binding = ActivityCharactersListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Configure the toolbar
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.title = "Rick and Morty Characters"
-
         val layoutManager = GridLayoutManager(this, 2)
         binding.charactersRecyclerView.layoutManager = layoutManager
         adapter = CharactersAdapter(emptyList()) { character ->
