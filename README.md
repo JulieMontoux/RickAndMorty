@@ -8,8 +8,8 @@ Le but de l’application sera d’appeler un webservice afin d’afficher une l
 - [x] Gestion des erreurs
 - [x] Détails d’un personnage
 - [x] Affichage des images
-- [ ] Gestion de la toolbar
-- [ ] Style
+- [x] Gestion de la toolbar
+- [x] Style
 - [ ] Gestion de la pagination
 - [ ] Stockage des données en local
 - [ ] Utilisation de Jetpack Compose
