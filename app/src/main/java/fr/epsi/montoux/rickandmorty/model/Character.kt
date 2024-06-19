@@ -5,11 +5,13 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Character(
+    val id: Int,
     val name: String,
     val status: String,
     val species: String,
+    val type: String,
     val gender: String,
-    val origin: Location,
+    val origin: Origin,
     val location: Location,
     val image: String,
     val episode: List<String>,
@@ -18,11 +20,13 @@ data class Character(
 ) : Parcelable
 
 @Parcelize
-data class Location(
+data class Origin(
     val name: String,
     val url: String
 ) : Parcelable
 
-data class CharacterResponse(
-    val results: List<Character>
-)
+@Parcelize
+data class Location(
+    val name: String,
+    val url: String
+) : Parcelable
